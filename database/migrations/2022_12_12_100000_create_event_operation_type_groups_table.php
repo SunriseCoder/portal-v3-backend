@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('event_operation_type_groups', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_id')->constrained('event_types')
-                ->restrictOnDelete()->cascadeOnUpdate();
-            $table->tinyText('name')->unique();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->string('code')->unique();
+            $table->tinyText('name');
+            $table->integer('position')->unique();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('event_operation_type_groups');
     }
 };

@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('event_types', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
+            $table->string('code')->unique();
             $table->tinyText('name');
-            $table->integer('position');
+            $table->integer('position')->unique();
             $table->timestamps();
         });
     }

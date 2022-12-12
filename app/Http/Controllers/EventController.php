@@ -3,8 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\EventCollection;
+use App\Http\Resources\EventOperationCollection;
+use App\Http\Resources\EventOperationStatusCollection;
+use App\Http\Resources\EventOperationTypeCollection;
+use App\Http\Resources\EventOperationTypeGroupCollection;
 use App\Http\Resources\EventTypeCollection;
 use App\Models\Event;
+use App\Models\EventOperation;
+use App\Models\EventOperationStatus;
+use App\Models\EventOperationType;
+use App\Models\EventOperationTypeGroup;
 use App\Models\EventType;
 use Illuminate\Http\Request;
 
@@ -20,6 +28,10 @@ class EventController extends Controller
         return [
             'eventTypes' => new EventTypeCollection(EventType::all()),
             'events' => new EventCollection(Event::all()),
+            'eventOperationTypeGroups' => new EventOperationTypeGroupCollection(EventOperationTypeGroup::all()),
+            'eventOperationTypes' => new EventOperationTypeCollection(EventOperationType::all()),
+            'eventOperationStatuses' => new EventOperationStatusCollection(EventOperationStatus::all()),
+            'eventOperations' => new EventOperationCollection(EventOperation::all()),
         ];
     }
 
