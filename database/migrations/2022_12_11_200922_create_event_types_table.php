@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->tinyText('name');
+            $table->integer('position');
             $table->timestamps();
         });
     }

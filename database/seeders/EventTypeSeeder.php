@@ -15,8 +15,8 @@ class EventTypeSeeder extends Seeder
     public function run(): void
     {
         $eventTypes = [
-            [ 'code' => 'FESTIVAL', 'name' => 'Festival' ],
-            [ 'code' => 'CONFERENCE', 'name' => 'Conference' ],
+            [ 'code' => 'FESTIVAL', 'name' => 'Festival', 'position' => 10 ],
+            [ 'code' => 'CONFERENCE', 'name' => 'Conference', 'position' => 20 ],
         ];
 
         DB::table('event_types')->insert($eventTypes);
