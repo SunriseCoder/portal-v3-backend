@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Tracker\Event;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EventOperationTypeGroup extends Model
+class EventOperationType extends Model
 {
     use HasFactory;
 }

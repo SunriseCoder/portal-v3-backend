@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Tracker\Event;
 
-use App\Models\EventOperationTypeGroup;
+use App\Models\Tracker\Event\EventOperationTypeGroup;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 

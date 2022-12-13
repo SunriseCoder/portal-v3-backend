@@ -1,20 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tracker;
 
-use App\Http\Resources\EventCollection;
-use App\Http\Resources\EventOperationCollection;
-use App\Http\Resources\EventOperationStatusCollection;
-use App\Http\Resources\EventOperationTypeCollection;
-use App\Http\Resources\EventOperationTypeGroupCollection;
-use App\Http\Resources\EventTypeCollection;
-use App\Models\Event;
-use App\Models\EventOperation;
-use App\Models\EventOperationStatus;
-use App\Models\EventOperationType;
-use App\Models\EventOperationTypeGroup;
-use App\Models\EventType;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Tracker\Event\EventOperationResource;
+use App\Http\Resources\Tracker\Event\EventOperationStatusResource;
+use App\Http\Resources\Tracker\Event\EventOperationTypeGroupResource;
+use App\Http\Resources\Tracker\Event\EventOperationTypeResource;
+use App\Http\Resources\Tracker\Event\EventResource;
+use App\Http\Resources\Tracker\Event\EventTypeResource;
+use App\Models\Tracker\Event\Event;
+use App\Models\Tracker\Event\EventOperation;
+use App\Models\Tracker\Event\EventOperationStatus;
+use App\Models\Tracker\Event\EventOperationType;
+use App\Models\Tracker\Event\EventOperationTypeGroup;
+use App\Models\Tracker\Event\EventType;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class EventController extends Controller
 {
@@ -26,23 +28,23 @@ class EventController extends Controller
     public function complex(): array
     {
         return [
-            'eventTypes' => new EventTypeCollection(EventType::all()),
-            'events' => new EventCollection(Event::all()),
-            'eventOperationTypeGroups' => new EventOperationTypeGroupCollection(EventOperationTypeGroup::all()),
-            'eventOperationTypes' => new EventOperationTypeCollection(EventOperationType::all()),
-            'eventOperationStatuses' => new EventOperationStatusCollection(EventOperationStatus::all()),
-            'eventOperations' => new EventOperationCollection(EventOperation::all()),
+            'eventTypes' => EventTypeResource::collection(EventType::all()),
+            'events' => EventResource::collection(Event::all()),
+            'eventOperationTypeGroups' => EventOperationTypeGroupResource::collection(EventOperationTypeGroup::all()),
+            'eventOperationTypes' => EventOperationTypeResource::collection(EventOperationType::all()),
+            'eventOperationStatuses' => EventOperationStatusResource::collection(EventOperationStatus::all()),
+            'eventOperations' => EventOperationResource::collection(EventOperation::all()),
         ];
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return EventCollection
+     * @return AnonymousResourceCollection
      */
-    public function index(): EventCollection
+    public function index(): AnonymousResourceCollection
     {
-        return new EventCollection(Event::all());
+        return EventResource::collection(Event::all());
     }
 
     /**

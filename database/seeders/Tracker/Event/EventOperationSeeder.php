@@ -1,10 +1,10 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Tracker\Event;
 
-use App\Models\Event;
-use App\Models\EventOperationStatus;
-use App\Models\EventOperationType;
+use App\Models\Tracker\Event\Event;
+use App\Models\Tracker\Event\EventOperationStatus;
+use App\Models\Tracker\Event\EventOperationType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 

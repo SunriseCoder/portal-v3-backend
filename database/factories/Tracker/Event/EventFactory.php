@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Tracker\Event;
 
-use App\Models\Event;
+use App\Models\Tracker\Event\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

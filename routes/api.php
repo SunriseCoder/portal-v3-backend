@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Tracker\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/events', [\App\Http\Controllers\EventController::class, 'index']);
-Route::get('/events/complex', [\App\Http\Controllers\EventController::class, 'complex']);
+Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/complex', [EventController::class, 'complex']);

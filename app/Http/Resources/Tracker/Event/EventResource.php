@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Tracker\Event;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EventTypeResource extends JsonResource
+class EventResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +17,10 @@ class EventTypeResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'code' => $this->code,
+            'typeId' => $this->type_id,
             'name' => $this->name,
-            'position' => $this->position,
+            'startDate' => $this->start_date,
+            'endDate' => $this->end_date,
         ];
     }
 }

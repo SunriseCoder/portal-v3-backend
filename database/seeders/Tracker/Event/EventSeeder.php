@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Tracker\Event;
 
-use App\Models\Event;
-use App\Models\EventType;
+use App\Models\Tracker\Event\Event;
+use App\Models\Tracker\Event\EventType;
 use Illuminate\Database\Seeder;
 
 class EventSeeder extends Seeder
