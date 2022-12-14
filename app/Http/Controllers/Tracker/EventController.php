@@ -3,12 +3,26 @@
 namespace App\Http\Controllers\Tracker;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Tracker\Activity\ActivityOperationLanguageResource;
+use App\Http\Resources\Tracker\Activity\ActivityOperationResource;
+use App\Http\Resources\Tracker\Activity\ActivityOperationStatusResource;
+use App\Http\Resources\Tracker\Activity\ActivityOperationTypeGroupResource;
+use App\Http\Resources\Tracker\Activity\ActivityOperationTypeResource;
+use App\Http\Resources\Tracker\Activity\ActivityResource;
+use App\Http\Resources\Tracker\Activity\ActivityTypeResource;
 use App\Http\Resources\Tracker\Event\EventOperationResource;
 use App\Http\Resources\Tracker\Event\EventOperationStatusResource;
 use App\Http\Resources\Tracker\Event\EventOperationTypeGroupResource;
 use App\Http\Resources\Tracker\Event\EventOperationTypeResource;
 use App\Http\Resources\Tracker\Event\EventResource;
 use App\Http\Resources\Tracker\Event\EventTypeResource;
+use App\Models\Tracker\Activity\Activity;
+use App\Models\Tracker\Activity\ActivityOperation;
+use App\Models\Tracker\Activity\ActivityOperationLanguage;
+use App\Models\Tracker\Activity\ActivityOperationStatus;
+use App\Models\Tracker\Activity\ActivityOperationType;
+use App\Models\Tracker\Activity\ActivityOperationTypeGroup;
+use App\Models\Tracker\Activity\ActivityType;
 use App\Models\Tracker\Event\Event;
 use App\Models\Tracker\Event\EventOperation;
 use App\Models\Tracker\Event\EventOperationStatus;
@@ -34,6 +48,13 @@ class EventController extends Controller
             'eventOperationTypes' => EventOperationTypeResource::collection(EventOperationType::all()),
             'eventOperationStatuses' => EventOperationStatusResource::collection(EventOperationStatus::all()),
             'eventOperations' => EventOperationResource::collection(EventOperation::all()),
+            'activityTypes' => ActivityTypeResource::collection(ActivityType::all()),
+            'activities' => ActivityResource::collection(Activity::all()),
+            'activityOperationTypeGroups' => ActivityOperationTypeGroupResource::collection(ActivityOperationTypeGroup::all()),
+            'activityOperationTypes' => ActivityOperationTypeResource::collection(ActivityOperationType::all()),
+            'activityOperationLanguages' => ActivityOperationLanguageResource::collection(ActivityOperationLanguage::all()),
+            'activityOperationStatuses' => ActivityOperationStatusResource::collection(ActivityOperationStatus::all()),
+            'activityOperations' => ActivityOperationResource::collection(ActivityOperation::all()),
         ];
     }
 
