@@ -15,10 +15,6 @@ class EventSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            EventTypeSeeder::class,
-        ]);
-
         foreach(EventType::all() as $type) {
             Event::factory()
                 ->count(50)

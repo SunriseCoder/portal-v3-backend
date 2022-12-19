@@ -14,11 +14,13 @@ class EventOperationStatusSeeder extends Seeder
      */
     public function run(): void
     {
+        $position = 0;
         $statuses = [
-            [ 'code' => 'NEW', 'name' => 'New', 'position' => 10 ],
-            [ 'code' => 'WORKING', 'name' => 'Working', 'position' => 20 ],
-            [ 'code' => 'DONE', 'name' => 'Done', 'position' => 30 ],
-            [ 'code' => 'NOT_APPLICABLE', 'name' => 'N/a', 'position' => 40 ],
+            [ 'code' => 'NEW', 'name' => 'New', 'position' => $position += 10 ],
+            [ 'code' => 'WORKING', 'name' => 'Working', 'position' => $position += 10 ],
+            [ 'code' => 'DONE', 'name' => 'Done', 'position' => $position += 10 ],
+
+            [ 'code' => 'NOT_APPLICABLE', 'name' => 'N/a', 'position' => $position += 10 ],
         ];
 
         DB::table('event_operation_statuses')->insert($statuses);

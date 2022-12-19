@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->tinyText('name');
+            $table->boolean('is_language_dependent');
             $table->integer('position')->unique();
             $table->timestamps();
         });

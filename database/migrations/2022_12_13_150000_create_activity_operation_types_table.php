@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('activity_operation_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('group_id')->constrained('event_operation_type_groups')
+            $table->foreignId('group_id')->constrained('activity_operation_type_groups')
                 ->restrictOnDelete()->cascadeOnUpdate();
             $table->string('code')->unique();
             $table->tinyText('name');

@@ -17,17 +17,13 @@ class EventOperationSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            EventSeeder::class,
-            EventOperationTypeSeeder::class,
-            EventOperationStatusSeeder::class,
-        ]);
-
+        $events = Event::all();
+        $types = EventOperationType::all();
         $statuses = EventOperationStatus::all();
 
         $operations = [];
-        foreach (Event::all() as $event) {
-            foreach (EventOperationType::all() as $type) {
+        foreach ($events as $event) {
+            foreach ($types as $type) {
                 $operations[] = [
                     'event_id' => $event->id,
                     'type_id' => $type->id,

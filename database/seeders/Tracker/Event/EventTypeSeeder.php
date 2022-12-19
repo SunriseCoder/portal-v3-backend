@@ -14,11 +14,12 @@ class EventTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        $eventTypes = [
-            [ 'code' => 'FESTIVAL', 'name' => 'Festival', 'position' => 10 ],
-            [ 'code' => 'CONFERENCE', 'name' => 'Conference', 'position' => 20 ],
+        $position = 0;
+        $types = [
+            [ 'code' => 'FESTIVAL', 'name' => 'Festival', 'position' => $position += 10 ],
+            [ 'code' => 'CONFERENCE', 'name' => 'Conference', 'position' => $position += 10 ],
         ];
 
-        DB::table('event_types')->insert($eventTypes);
+        DB::table('event_types')->insert($types);
     }
 }

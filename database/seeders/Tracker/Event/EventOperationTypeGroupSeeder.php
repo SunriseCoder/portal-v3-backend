@@ -14,11 +14,12 @@ class EventOperationTypeGroupSeeder extends Seeder
      */
     public function run(): void
     {
-        $eventTypes = [
-            [ 'code' => 'RECORDINGS', 'name' => 'Recordings', 'position' => 10 ],
-            [ 'code' => 'ACTIVITIES', 'name' => 'Activities', 'position' => 20 ],
+        $position = 0;
+        $groups = [
+            [ 'code' => 'RECORDINGS', 'name' => 'Recordings', 'position' => $position += 10 ],
+            [ 'code' => 'ACTIVITIES', 'name' => 'Activities', 'position' => $position += 10 ],
         ];
 
-        DB::table('event_operation_type_groups')->insert($eventTypes);
+        DB::table('event_operation_type_groups')->insert($groups);
     }
 }

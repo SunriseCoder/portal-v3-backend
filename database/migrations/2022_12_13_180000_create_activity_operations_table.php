@@ -19,7 +19,7 @@ return new class extends Migration
                 ->restrictOnDelete()->cascadeOnUpdate();
             $table->foreignId('type_id')->constrained('activity_operation_types')
                 ->restrictOnDelete()->cascadeOnUpdate();
-            $table->foreignId('language_id')->constrained('activity_operation_languages')
+            $table->foreignId('language_id')->nullable()->constrained('activity_operation_languages')
                 ->restrictOnDelete()->cascadeOnUpdate();
             $table->foreignId('status_id')->constrained('activity_operation_statuses')
                 ->restrictOnDelete()->cascadeOnUpdate();

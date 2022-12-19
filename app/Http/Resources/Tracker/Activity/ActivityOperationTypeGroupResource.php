@@ -19,6 +19,7 @@ class ActivityOperationTypeGroupResource extends JsonResource
             'id' => $this->id,
             'code' => $this->code,
             'name' => $this->name,
+            'isLanguageDependent' => $this->is_language_dependent,
             'position' => $this->position,
         ];
     }
